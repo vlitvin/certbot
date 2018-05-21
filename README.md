@@ -40,5 +40,8 @@ spec:
 
 Run this image
 ```
-kubectl run -n <yourNamespace> certbot --image=valitvin/certbot -l 'run=certbot'
+kubectl run -n <yourNamespace> certbot --image=valitvin/certbot -l 'run=certbot' --env="DOMAINS=<domain_list>" --env="KUBE_NAMESPACE=<yourNamespace>" --env="CERTNAME=<secret_with_cert_name>"
 ```
+
+# RBAC notes
+If you are using RBAC (you are using it). Service account witch runs certbot image should be able to create secrets in ${KUBE_NAMESPACE}
