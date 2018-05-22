@@ -10,7 +10,7 @@ sleep 30
 echo "Obtaining cert"
 certbot certonly \
         --webroot \
-        -w /le
+        -w /le \
         --non-interactive \
         --agree-tos \
         --domains ${DOMAINS} \
