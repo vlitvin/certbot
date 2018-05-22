@@ -2,7 +2,7 @@
 
 echo "Starting webserver"
 cd /le
-python -m SimpleHTTPServer 80
+python -m SimpleHTTPServer 80 &
 
 echo "Waiting for k8s do its service and ingress job"
 sleep 30
