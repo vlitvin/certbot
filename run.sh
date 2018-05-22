@@ -4,7 +4,7 @@ certbot certonly \
         --standalone \
         --non-interactive \
         --domains ${DOMAINS} \
-        --certname ${CERTNAME} \
+        --cert-name ${CERTNAME} \
         -m ${EMAIL}
  
 echo "
