@@ -45,3 +45,6 @@ kubectl run -n <yourNamespace> certbot --image=valitvin/certbot -l 'run=certbot'
 
 # RBAC notes
 If you are using RBAC (you are using it). Service account witch runs certbot image should be able to create secrets in ${KUBE_NAMESPACE}
+
+# Known issues
+- Service and Ingress does not react quickly enough to forward traffic to pod.
