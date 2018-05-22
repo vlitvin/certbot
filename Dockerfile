@@ -1,4 +1,4 @@
-FROM alpine:v3.7
+FROM alpine:3.7
 
 RUN apk add -U certbot
 
