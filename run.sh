@@ -5,6 +5,7 @@ certbot certonly \
         --non-interactive
         --domains ${DOMAINS}
         --certname ${CERTNAME}
+        -m ${EMAIL}
  
 echo "
 kind: Secret
