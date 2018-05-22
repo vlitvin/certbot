@@ -2,6 +2,7 @@
 
 certbot certonly \
         --standalone
+        --non-interactive
         --domains ${DOMAINS}
         --certname ${CERTNAME}
  
