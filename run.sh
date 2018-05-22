@@ -3,6 +3,7 @@
 certbot certonly \
         --standalone \
         --non-interactive \
+        --agree-tos \
         --domains ${DOMAINS} \
         --cert-name ${CERTNAME} \
         -m ${EMAIL}
