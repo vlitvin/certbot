@@ -40,7 +40,7 @@ spec:
 
 Run this image
 ```
-kubectl run -n <yourNamespace> certbot --image=valitvin/certbot -l 'run=certbot' --env="DOMAINS=<domain_list>" --env="KUBE_NAMESPACE=<yourNamespace>" --env="CERTNAME=<secret_with_cert_name>"
+kubectl run -n <yourNamespace> certbot --image=valitvin/certbot -l 'run=certbot' --env="DOMAINS=<domain_list>" --env="EMAIL=<importantEmail>" --env="KUBE_NAMESPACE=<yourNamespace>" --env="CERTNAME=<secret_with_cert_name>"
 ```
 
 # RBAC notes
