@@ -1,10 +1,10 @@
 #!/bin/sh
 
 certbot certonly \
-        --standalone
-        --non-interactive
-        --domains ${DOMAINS}
-        --certname ${CERTNAME}
+        --standalone \
+        --non-interactive \
+        --domains ${DOMAINS} \
+        --certname ${CERTNAME} \
         -m ${EMAIL}
  
 echo "
