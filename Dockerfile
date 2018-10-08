@@ -16,5 +16,4 @@ RUN curl -L -o /usr/bin/kubectl https://storage.googleapis.com/kubernetes-releas
 
 COPY ./*.sh /
 
-ENTRYPOINT [ '/bin/sh' ]
-CMD        [ '/run.sh' ]
+ENTRYPOINT [ '/run.sh' ]
