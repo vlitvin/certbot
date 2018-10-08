@@ -3,12 +3,14 @@ Easy-peasy certbot for your ingress
 
 # howto
 
+Create web listener and redirect letsencrypt auth traffic to it. See ./examples/
+
 Modify ingress and direct traffic to this container
 ```
-kind: Ingress
+kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: <yourIngress>
+  name: certbot
   namespace: <yourNamespace>
 spec:
   rules:

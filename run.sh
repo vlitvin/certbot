@@ -1,24 +1,26 @@
 #!/bin/sh
 
-echo "Starting webserver"
-cd /le
-python -m SimpleHTTPServer 80 &
-
-echo "Waiting for k8s do its service and ingress job"
-sleep 30
+# Environmentals
+# KUBE_CONFIGMAP
+# KUBE_NAMESPACE
+# DOMAINS
+# CERTNAME
+# EMAIL
 
 echo "Obtaining cert"
 certbot certonly \
-        --webroot \
-        -w /le \
+        --manual \
         --non-interactive \
         --agree-tos \
+        --manual-public-ip-logging-ok \
         --domains ${DOMAINS} \
         --cert-name ${CERTNAME} \
-        -m ${EMAIL}
+        -m ${EMAIL} \
+        --manual-auth-hook /auth-hook.sh \
+        --manual-cleanup-hook /cleanup-hook.sh
 
 echo "Deploying secret"
-echo "
+cat <<< EOF | kubectl apply --force -f -
 kind: Secret
 apiVersion: v1
 type: Opaque
@@ -28,4 +30,4 @@ metadata:
 data:
   tls.crt: `cat /etc/letsencrypt/live/${CERTNAME}/fullchain.pem | base64 -w 0`
   tls.key: `cat /etc/letsencrypt/live/${CERTNAME}/privkey.pem | base64 -w 0`
-" | kubectl apply --force -f - 
+EOF
