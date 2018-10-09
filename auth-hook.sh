@@ -8,7 +8,7 @@ cat <<EOF | kubectl -n ${KUBE_NAMESPACE} patch configmap ${KUBE_CONFIGMAP} --typ
 }]
 EOF
 
-URL="https://${CERTBOT_DOMAIN}/.well-known/acme-challenge/${CERTBOT_TOKEN}
+URL="https://${CERTBOT_DOMAIN}/.well-known/acme-challenge/${CERTBOT_TOKEN}"
 
 until $(curl --output /dev/null --silent --head --fail -k ${URL}); do
     printf '.'
