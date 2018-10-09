@@ -18,7 +18,7 @@ certbot certonly \
         --cert-name ${CERTNAME} \
         -m ${EMAIL} \
         --manual-auth-hook /auth-hook.sh \
-        --manual-cleanup-hook /cleanup-hook.sh
+        --manual-cleanup-hook /cleanup-hook.sh \
         ${OPS}
 
 echo "Deploying secret"
