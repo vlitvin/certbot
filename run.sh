@@ -6,6 +6,7 @@
 # DOMAINS
 # CERTNAME
 # EMAIL
+# OPS
 
 echo "Obtaining cert"
 certbot certonly \
@@ -18,6 +19,7 @@ certbot certonly \
         -m ${EMAIL} \
         --manual-auth-hook /auth-hook.sh \
         --manual-cleanup-hook /cleanup-hook.sh
+        ${OPS}
 
 echo "Deploying secret"
 cat <<< EOF | kubectl apply --force -f -
