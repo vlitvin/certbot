@@ -10,7 +10,7 @@ EOF
 
 URL="https://${CERTBOT_DOMAIN}/.well-known/acme-challenge/${CERTBOT_TOKEN}
 
-until $(curl --output /dev/null --silent --head --fail ${URL}); do
+until $(curl --output /dev/null --silent --head --fail -k ${URL}); do
     printf '.'
     sleep 5
 done

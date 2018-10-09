@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-RUN apk add -U --no-cache certbot coreutils
+RUN apk add -U --no-cache certbot coreutils curl
 
 # Install requirements
 RUN apk add -U openssl curl tar gzip bash ca-certificates && \
