@@ -22,12 +22,12 @@ certbot certonly \
         ${OPS}
 
 echo "Deploying secret"
-cat <<< EOF | kubectl apply --force -f -
+cat <<EOF | kubectl apply --force -f -
 kind: Secret
 apiVersion: v1
 type: Opaque
 metadata:
-  name: $CERTNAME
+  name: ${CERTNAME}
   namespace: ${KUBE_NAMESPACE}
 data:
   tls.crt: `cat /etc/letsencrypt/live/${CERTNAME}/fullchain.pem | base64 -w 0`
